@@ -3,7 +3,9 @@ var threeItems = [1,2,3];
 //alert the result of your function
 
   //code here
-
+var last = function() {
+	return threeItems[threeItems.length - 1]
+}
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -14,6 +16,16 @@ var threeItems = [1,2,3];
 var evenArray = [1,2,3,6,22,98,45,23,22,12];
 
   //code here
+var oddSmasher = function(arr) {
+	for (var i = 0; i < evenArray.length; i++) {
+		if (arr[i] % 2 !== 0) {
+			arr.splice(i, 1)
+			i--;
+		}
+	};
+}
+
+oddSmasher(evenArray);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
