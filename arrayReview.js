@@ -32,14 +32,22 @@ oddSmasher(evenArray);
 
 
 
-//below you're given a function that will return a random number between 0 and 30 and an array full or numbers 'randomArray'. Your job is to write a function that will get a random number, then loop through the array to see if that random number is in the array. If it is, alert true, if it's not, alert false
+//below you're given a function that will return a random number between 0 and 30 and an array full of numbers 'randomArray'. Your job is to write a function that will get a random number, then loop through the array to see if that random number is in the array. If it is, alert true, if it's not, alert false
 var getRandomArbitrary = function() {
   return Math.floor(Math.random() * (30 - 0) + 0);
 }
 var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
   //code here
-
+var finder = function(n, checkMe) {
+  for (var i = 0; i < n.length; i++) {
+    if (n[i] === checkMe) {
+      return true;
+    }
+  }
+  return false;
+};
+finder(randomArray, getRandomArbitrary());
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -50,6 +58,11 @@ var first = [1,2,3,4,5];
 var second;
 
   //code here
+second = []
+for (var i = 0; i < first.length; i++) {
+	second.push(first[i])
+};
+second.push(6, 7)
 
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
@@ -65,6 +78,19 @@ var sentence = "Dev Mountain is the best"
 
   //code here
 
+var lon=-1,len=0, longest=function(str) {
+  var strArr = str.split(" ");
+  for (var i = 0; i < strArr.length; i++) {
+    if (strArr[i].length>len) {
+    	lon = i;len=strArr[i].length
+    }
+  }
+  return strArr[lon]
+};
+var word = longest(sentence);
+alert(word)
+
+
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -75,6 +101,17 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
   //code here
+var capitalize = function(str) {
+  var strArr = str.split(' ');
+  var newArr = [];
+  for (var i = 0; i < strArr.length; i++) {
+    newArr.push(strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1))
+  };
+  return newArr.join(' ')  
+}
+
+var fixedPoem = capitalize(myPoem);
+alert(fixedPoem);
 
 
 
@@ -84,3 +121,16 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+
+var vowelCounter = function(str) {
+  var strArr = str.split('')
+  var count = 0;
+  for (var i = 0; i < strArr.length; i++) {
+    if (strArr[i] == 'a' || strArr[i] == 'e' || strArr[i] == 'i' || strArr[i] == 'o' || strArr[i] == 'u') {
+      count++;
+    }
+  };
+  return count;
+}
+
+vowelCounter(theOdyssey)
