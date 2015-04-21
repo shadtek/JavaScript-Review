@@ -1,5 +1,7 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
-
+var first = function(n, cb) {
+    cb(n[0]);
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -12,8 +14,9 @@ first(names, function(firstName){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
+var last = function(n, cb) {
+  cb(n[n.length - 1])
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -26,6 +29,10 @@ last(names, function(lastName){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
+
+var contains = function(s, n, cb) {
+  cb(s === n[n.indexOf(s)])
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -55,7 +62,17 @@ map(numbers, function(num){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+var uniq = function(n, cb) {
+  for (var i = 0; i < n.length; i++) {
+    for (var j = 0; j < n.length; j++) {
+      if (n[i] === n[j] && i !== j) {
+        n.splice(j, 1);
+        j--;
+      }
+    };
+  };
+  cb(n)
+}
 
 
 
@@ -68,21 +85,29 @@ uniq(names, function(uniqArr){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
-
+var each = function(arr, cb) {
+  for (var i = 0; i < arr.length; i++) {
+    cb(arr[i], i)
+  };
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
-  console.log('The item in the ' + indice + 'position is ' + item)
+  console.log('The item in the ' + indice + ' position is ' + item)
 });
 
 
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
-
+var getUserById = function(id, arr, cb) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].id === id) {
+      cb(arr[i])
+    }
+  };
+}
 
 
 var users = [
